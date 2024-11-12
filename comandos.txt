@@ -1,0 +1,5 @@
+-iniciar app.py-
+python app.py
+
+-instalar flask y librerias-
+pip install Flask numpy scipy pandas matplotlib sympy

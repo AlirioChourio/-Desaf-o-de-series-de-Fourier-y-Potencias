@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series de Potencias y Fourier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Series</h1>
+        
+        <div class="section">
+            <h2>Serie de Potencias</h2>
+            <form id="powerSeriesForm" action="/calculate" method="post">
+                <label for="powerInput">Introduce la ecuacion (ej. y'' - y = 0):</label>
+                <input type="text" id="powerInput" name="powerInput" required>
+                <button type="submit">Calcular</button>
+            </form>
+            <div id="powerResult">
+                {% if power_result %}
+                    <h3>Resultado:</h3>
+                    <p>{{ power_result }}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Serie de Fourier</h2>
+            <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
+                <label for="fourierInput">Introduce la funcion (ej. e⁻ᵗ,0≤t≤1):</label>
+                <input type="text" id="fourierInput" name="fourierInput" required>
+                <button type="submit">Calcular</button>
+            </form>
+            <div id="fourierResult">
+                {% if fourier_result %}
+                    <h3>Resultado:</h3>
+                    <p>{{ fourier_result }}</p>
+                {% endif %}
+            </div>
+        </div>
+</body>
+</html>
