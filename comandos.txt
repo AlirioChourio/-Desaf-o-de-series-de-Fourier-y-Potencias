@@ -1,5 +1,8 @@
--iniciar app.py-
-python app.py
+-instalar tailwindcss-
+npm install tailwindcss
 
 -instalar flask y librerias-
 pip install Flask numpy scipy pandas matplotlib sympy
+
+-iniciar app.py-
+python app.py

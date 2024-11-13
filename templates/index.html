@@ -4,9 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Series de Potencias y Fourier</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<header>
+    <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/022/726/549/small_2x/mathematics-equations-and-formulas-on-blackboard-video.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-10">
+        <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+        <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+        <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+            <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Desafío de series de Fourier y Potencias </h2>
+            <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.</p>
+        </div>
+        
+        </div>
+    </div>
+</header>
 <body>
+    
+    <div class="container">
+        <h1>Series de Potencias y Series de Fourier</h1>
+        
+        <section>
+            <h2>Series de Potencias</h2>
+            <p>
+                Una serie de potencias es un tipo de serie con términos que incluyen una variable. Más concretamente, si la variable es x, entonces todos los términos de la serie implican potencias de x. En consecuencia, una serie de potencias puede considerarse como un polinomio infinito. 
+                Las series de potencias se utilizan para representar funciones comunes y también para definir nuevas funciones. En esta sección definimos las series de potencias y mostramos cómo determinar cuándo una serie de potencias converge y cuándo diverge. También mostramos cómo representar ciertas funciones utilizando series de potencias.
+            </p>
+            <img src="static/img/potencias formula.jpg" alt="Descripción de la imagen" />
+            <br>
+            <p>
+                donde x es una variable y los coeficientes cn son constantes, se conoce como serie de potencia. La serie
+            </p>
+            <img src="static/img/potencia.jpg" alt="Descripción de la imagen" />
+            <br>
+            <h3>Características Principales</h3>
+            <br>
+            <p>
+                1. Convergencia: Una serie de potencias puede converger (sumar a un valor finito) en ciertos intervalos de x. 
+                El conjunto de valores de  x  para los cuales la serie converge se denomina radio de convergencia.
+            </p>
+            <br>
+            <p>
+                2. Centro de la serie: El punto c es donde se centra la serie.
+                La forma (x−c) permite que la serie se desplace a lo largo del eje x.
+            </p>
+            <br>
+            <p>
+                3. Aplicaciones: Las series de potencias son fundamentales en el análisis matemático y tienen aplicaciones en diversas áreas, como la física, la ingeniería y la economía.
+                Se utilizan para aproximar funciones complicadas mediante polinomios.
+            </p>
+        </section>
+        <br>
+        <br>
+        <br>
+        <section>
+            <h2>Series de Fourier</h2>
+            <p>
+                El nombre se debe al matemático francés Jean-Baptiste Joseph Fourier, que desarrolló la teoría cuando estudiaba la ecuación del calor.
+                Fue el primero que estudió tales series sistemáticamente, y publicó sus resultados iniciales en 1807 y 1811. 
+                Esta área de investigación se llama algunas veces análisis armónico.
+            </p>
+            <br>
+            <p>
+                La Serie de Fourier es una herramienta matemática que nos permite obtener información de una función determinada mediante una transformación (donde entenderemos por “transformación” al proceso que reduce la complejidad de una ecuación). 
+                Por lo tanto, cuando se hace referencia a la Serie de Fourier (sf), realmente hablamos de la transformación que nos permite extraer información sobre la frecuencia de un ciclo –puede ser cualquier función– cuando conocemos sólo una parte de su comportamiento.  
+            </p>
+            <img src="static/img/fourier formula.jpg" alt="Descripción de la imagen" />
+            <br>
+            <p>
+                La idea intrínseca de la sf nos indica que cualquier función, generalmente periódica, se puede aproximar por medio de funciones simples sinusoidales. 
+                De forma que cuanto más coincide una onda simple con el dato observado, más peso tiene en la determinación de la función original. (Con este procedimiento es posible representar funciones deterministas o de índole aleatoria.)
+            </p>
+        </section>
+
+        <br>
+        <br>
+        <br>
+
+    <div class="container">
+        <h1>Cuestionario</h1>
+        <form action="/quiz" method="POST">
+            <div class="section">
+                <label>1. ¿Qué es una serie de potencias?</label><br>
+                <input type="radio" name="pregunta1" value="a" required> a) Una suma finita de términos.<br>
+                <input type="radio" name="pregunta1" value="b"> b) Una serie que incluye potencias de una variable.<br>
+                <input type="radio" name="pregunta1" value="c"> c) Un tipo de ecuación diferencial.<br>
+            </div>
+            <div class="section">
+                <label>2. ¿Qué se entiende por radio de convergencia en el contexto de series de potencias?</label><br>
+                <input type="radio" name="pregunta2" value="a" required> a) El número máximo de términos en la serie.<br>
+                <input type="radio" name="pregunta2" value="b"> b) El conjunto de valores para los cuales la serie converge.<br>
+                <input type="radio" name="pregunta2" value="c"> c) La distancia entre el centro de la serie y el primer término.<br>
+            </div>
+            <div class="section">
+                <label>3. ¿Cuál es el papel del punto c en una serie de potencias?</label><br>
+                <input type="radio" name="pregunta3" value="a" required> a)  Es el centro alrededor del cual se desarrolla la serie.<br>
+                <input type="radio" name="pregunta3" value="b"> b) Es el valor máximo que puede tomar x<br>
+                <input type="radio" name="pregunta3" value="c"> c) Es el coeficiente principal de la serie.<br>
+            </div>
+            <div class="section">
+                <label>4. ¿Qué tipo de funciones se pueden representar mediante series de potencias?</label><br>
+                <input type="radio" name="pregunta4" value="a" required> a) Solo funciones polinómicas.<br>
+                <input type="radio" name="pregunta4" value="b"> b) Solo funciones periódicas.<br>
+                <input type="radio" name="pregunta4" value="c"> c) Funciones comunes y nuevas funciones complejas.<br>
+            </div>
+            <div class="section">
+                <label>5. ¿Quién desarrolló la teoría de las series de Fourier?</label><br>
+                <input type="radio" name="pregunta5" value="a" required> a) Jean-Baptiste Joseph Fourier.<br>
+                <input type="radio" name="pregunta5" value="b"> b) Isaac Newton.<br>
+                <input type="radio" name="pregunta5" value="c"> c) Carl Friedrich Gauss.<br>
+            </div>
+            <div class="section">
+                <label>6. ¿Cuál es la idea principal detrás de las series de Fourier?</label><br>
+                <input type="radio" name="pregunta6" value="a" required> a) Aproximar funciones mediante sumas finitas.<br>
+                <input type="radio" name="pregunta6" value="b"> b) Transformar ecuaciones diferenciales en polinomios.<br>
+                <input type="radio" name="pregunta6" value="c"> c) Representar funciones periódicas mediante funciones sinusoidales simples.<br>
+            </div>
+            <button type="submit">Enviar Respuestas</button>
+        </form>
+        {% if results %}
+            <div id="quizResult">
+                <h2>Resultados:</h2>
+                <p>{{ results }}</p>
+            </div>
+        {% endif %}
+    </div>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <h1>Calculadora de Series</h1>
         

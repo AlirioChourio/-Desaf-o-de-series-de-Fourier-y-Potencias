@@ -11,11 +11,47 @@ from flask import Flask, render_template, request  # Para usar Flask
 # Crear una instancia de Flask
 app = Flask(__name__)
 
+# Respuestas correctas
+correct_answers = {
+    'pregunta1': 'b',
+    'pregunta2': 'b',
+    'pregunta3': 'a',
+    'pregunta4': 'c',  
+    'pregunta5': 'a',  
+    'pregunta6': 'c'  
+}
+
 # SERIES DE POTENCIAS
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/quiz', methods=['POST'])
+def quiz():
+    respuestas = {
+        'pregunta1': request.form.get('pregunta1'),
+        'pregunta2': request.form.get('pregunta2'),
+        'pregunta3': request.form.get('pregunta3'),
+        'pregunta4': request.form.get('pregunta4'),  
+        'pregunta5': request.form.get('pregunta5'),  
+        'pregunta6': request.form.get('pregunta6')   
+    }
+    
+    # Verificar respuestas
+    resultados = []
+    for pregunta, respuesta in respuestas.items():
+        if respuesta is None:
+            resultados.append(f"{pregunta}: No respondida")
+        elif respuesta == correct_answers[pregunta]:
+            resultados.append(f"{pregunta}: Correcto")
+        else:
+            resultados.append(f"{pregunta}: Incorrecto (Respuesta correcta: {correct_answers[pregunta]})")
+    
+    # Unir resultados en una cadena
+    resultados_str = '  '.join(resultados)
+    
+    return render_template('index.html', results=resultados_str)
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
