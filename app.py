@@ -18,7 +18,7 @@ correct_answers = {
     'pregunta3': 'a',
     'pregunta4': 'c',  
     'pregunta5': 'a',  
-    'pregunta6': 'c'  
+     
 }
 
 # SERIES DE POTENCIAS
@@ -34,8 +34,7 @@ def quiz():
         'pregunta2': request.form.get('pregunta2'),
         'pregunta3': request.form.get('pregunta3'),
         'pregunta4': request.form.get('pregunta4'),  
-        'pregunta5': request.form.get('pregunta5'),  
-        'pregunta6': request.form.get('pregunta6')   
+        'pregunta5': request.form.get('pregunta5')  
     }
     
     # Verificar respuestas

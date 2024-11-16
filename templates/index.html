@@ -9,8 +9,7 @@
 </head>
 <header>
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/022/726/549/small_2x/mathematics-equations-and-formulas-on-blackboard-video.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-10">
-        <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+<img src="https://static.vecteezy.com/system/resources/thumbnails/022/726/549/small_2x/mathematics-equations-and-formulas-on-blackboard-video.jpg" alt="Mathematics background" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center opacity-10" loading="lazy">        <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
         <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
         </div>
         <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
@@ -18,8 +17,8 @@
         </div>
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:mx-0">
-            <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Desafío de series de Fourier y Potencias </h2>
-            <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Pon a prueba tus conocimientos sobre series de Fourier y potencias.</p>
+            <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Aprende de series de Fourier y Potencias </h2>
+            <p class="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">Bienvenido a la plataforma! Ponte a prueba con series de Fourier y potencias.</p>
         </div>
         
         </div>
@@ -44,7 +43,7 @@
             <div class="lg:pr-4">
               <div class="lg:max-w-lg">
                 <h1 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Series de Potencias</h1>
-                <p class="mt-6 text-xl/8 text-gray-700">Una serie de potencias es un tipo de serie con términos que incluyen una variable. Más concretamente, si la variable es x, entonces todos los términos de la serie implican potencias de x. En consecuencia, una serie de potencias puede considerarse como un polinomio infinito. Las series de potencias se utilizan para representar funciones comunes y también para definir nuevas funciones. En esta sección definimos las series de potencias y mostramos cómo determinar cuándo una serie de potencias converge y cuándo diverge. También mostramos cómo representar ciertas funciones utilizando series de potencias.</p>
+<p class="mt-6 text-xl/8 text-gray-700">Una serie de potencias es un tipo de serie con términos que incluyen una variable. Más concretamente, si la variable es x, entonces todos los términos de la serie implican potencias de x. En consecuencia, una serie de potencias puede considerarse como un polinomio infinito. Las series de potencias se utilizan para representar funciones comunes y también para definir nuevas funciones. En esta sección definimos las series de potencias y mostramos cómo determinar cuándo una serie de potencias converge y cuándo diverge. También mostramos cómo representar ciertas funciones utilizando series de potencias.</p>
             </div>
             </div>
           </div>
@@ -80,7 +79,8 @@
             <h1 class="text-4xl font-bold mb-6 text-center text-white">Cuestionario</h1>
             <form action="/quiz" method="POST">
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                  <div style="background-color: #776fff;" class="p-4 rounded-lg">
+
+<div style="background-color: #776fff;" class="p-4 rounded-lg">
                     <label class="block text-lg font-semibold mb-2 ">1. ¿Qué es una serie de potencias?</label>
                         <div>
                             <label class="inline-flex items-center">
@@ -134,7 +134,8 @@
                         </div>
                     </div>
                     <div style="background-color: #fd83b6;" class="p-4 rounded-lg">
-                      <label class="block text-lg font-semibold mb-2">4. ¿Qué tipo de funciones se pueden representar mediante series de potencias?</label>
+
+<label class="block text-lg font-semibold mb-2">4. ¿Qué tipo de funciones se pueden representar mediante series de potencias?</label>
                         <div>
                             <label class="inline-flex items-center">
                                 <input type="radio" name="pregunta4" value="a" required class="form-radio text-blue-600">
@@ -167,6 +168,15 @@
                             </label>
                         </div>
                     </div>
+                    <button type="submit">Enviar Respuestas</button>
+        </form>
+        {% if results %}
+            <div id="quizResult">
+                <h2>Resultados:</h2>
+                <p>{{ results }}</p>
+            </div>
+        {% endif %}
+
                   </div>
                           
     </div>
@@ -174,21 +184,21 @@
       <h1 class="text-4xl font-bold text-center mb-6 text-white">Calculadora de Series</h1>
       
       <div class="section bg-white p-6 rounded-lg shadow-md mb-4">
-          <h2 class="text-2xl font-semibold mb-4">Serie de Potencias</h2>
-          <form id="powerSeriesForm" action="/calculate" method="post">
-              <label for="powerInput" class="block mb-2">Introduce la ecuacion (ej. y'' - y = 0):</label>
-              <input type="text" id="powerInput" name="powerInput" required class="border border-gray-400 p-2 rounded w-full mb-4">
-              <button type="submit" class="bg-[#260e69] text-white py-2 px-4 rounded">Calcular</button>
-          </form>
-          <div id="powerResult">
-              {% if power_result %}
-                  <h3 class="text-lg font-semibold mt-4">Resultado:</h3>
-                  <p>{{ power_result }}</p>
-              {% endif %}
-          </div>
-      </div>
-  
-      <div class="section bg-white p-6 rounded-lg shadow-md mb-4">
+        <h2 class="text-2xl font-semibold mb-4">Serie de Potencia</h2>
+        <form id="powerSeriesForm" action="/calculate" method="post">
+            <label for="powerInput">Introduce la ecuacion (ej. y'' - y = 0):</label>
+            <input type="text" id="powerInput" name="powerInput" required>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="powerResult">
+            {% if power_result %}
+                <h3>Resultado:</h3>
+                <p>{{ power_result }}</p>
+            {% endif %}
+        </div>
+    </div>
+    
+<div class="section bg-white p-6 rounded-lg shadow-md mb-4">
           <h2 class="text-2xl font-semibold mb-4">Serie de Fourier</h2>
           <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
               <label for="fourierInput" class="block mb-2">Introduce la funcion (ej. e⁻ᵗ, 0≤t≤1):</label>
