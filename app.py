@@ -7,51 +7,177 @@ import sympy as sp              # Para matemáticas simbólicas
 
 # Importar frameworks
 from flask import Flask, render_template, request  # Para usar Flask
+import random
 
 # Crear una instancia de Flask
 app = Flask(__name__)
 
-# Respuestas correctas
-correct_answers = {
-    'pregunta1': 'b',
-    'pregunta2': 'b',
-    'pregunta3': 'a',
-    'pregunta4': 'c',  
-    'pregunta5': 'a',  
-     
-}
+# Lista de preguntas
+questions = [
+    {
+        'id': 'pregunta1',
+        'question': '¿Qué es una serie de potencias?',
+        'options': {
+            'a': 'Una suma finita de términos.',
+            'b': 'Una serie que incluye potencias de una variable.',
+            'c': 'Un tipo de ecuación diferencial.'
+        },
+        'correct_answer': 'b'
+    },
+    {
+        'id': 'pregunta2',
+        'question': '¿Qué se entiende por radio de convergencia en el contexto de series de potencias?',
+        'options': {
+            'a': 'El número máximo de términos en la serie.',
+            'b': 'El conjunto de valores para los cuales la serie converge.',
+            'c': 'La distancia entre el centro de la serie y el primer término.'
+        },
+        'correct_answer': 'b'
+    },
+    {
+        'id': 'pregunta3',
+        'question': '¿Cuál es el papel del punto c en una serie de potencias?',
+        'options': {
+            'a': 'Es el centro alrededor del cual se desarrolla la serie.',
+            'b': 'Es el valor máximo que puede tomar x.',
+            'c': 'Es el coeficiente principal de la serie.'
+        },
+        'correct_answer': 'a'
+    },
+    {
+        'id': 'pregunta4',
+        'question': '¿Qué tipo de funciones se pueden representar mediante series de potencias?',
+        'options': {
+            'a': 'Solo funciones polinómicas.',
+            'b': 'Solo funciones periódicas.',
+            'c': 'Funciones comunes y nuevas funciones complejas.'
+        },
+        'correct_answer': 'c'
+    },
+    {
+        'id': 'pregunta5',
+        'question': '¿Quién desarrolló la teoría de las series de Fourier?',
+        'options': {
+            'a': 'Jean-Baptiste Joseph Fourier.',
+            'b': 'Isaac Newton.',
+            'c': 'Carl Friedrich Gauss.'
+        },
+        'correct_answer': 'a'
+    },
+    {
+        'id': 'pregunta6',
+        'question': '¿Qué se entiende por radio de convergencia en el contexto de series de potencias?',
+        'options': {
+            'a': 'El número máximo de términos en la serie.',
+            'b': 'El conjunto de valores para los cuales la serie converge.',
+            'c': 'La distancia entre el centro de la serie y el primer término.'
+        },
+        'correct_answer': 'b'
+    },
+    {
+        'id': 'pregunta7',
+        'question': 'Al calcular el radio de convergencia de la serie Σ (n²x^n) / 3^n, ¿qué resultado obtenemos?',
+        'options': {
+            'a': '1/3',
+            'b': '3',
+            'c': '9'
+        },
+        'correct_answer': 'a'
+    },
+    {
+        'id': 'pregunta8',
+        'question': 'En una serie de Fourier para f(x) = x² en el intervalo [-π, π], ¿cuál será el valor del coeficiente a₀?',
+        'options': {
+            'a': 'π²/3',
+            'b': '2π²/3',
+            'c': 'π²'
+        },
+        'correct_answer': 'b'
+    },
+    {
+        'id': 'pregunta9',
+        'question': 'Si expandimos ln(1+x) en una serie de Maclaurin, ¿cuál es el tercer término no nulo de la serie?',
+        'options': {
+            'a': 'x²/2',
+            'b': '-x²/2',
+            'c': '-x³/3'
+        },
+        'correct_answer': 'c'
+    },
+    {
+        'id': 'pregunta10',
+        'question': 'Al representar una onda cuadrada con una serie de Fourier, ¿qué términos estarán presentes?',
+        'options': {
+            'a': 'Solo términos seno',
+            'b': 'Solo términos coseno',
+            'c': 'Solo términos seno de orden impar'
+        },
+        'correct_answer': 'c'
+    },
+    {
+        'id': 'pregunta11',
+        'question': '¿Cuál es la expresión de la serie de potencias para la función f(x) = e^x alrededor de x = 0?',
+        'options': {
+            'a': 'Σ (x^n) / n!',
+            'b': 'Σ (x^n) / n²!',
+            'c': 'Σ (x^n) / (n+1)!'
+        },
+        'correct_answer': 'a'
+    },
+    {
+        'id': 'pregunta12',
+        'question': 'Al calcular los coeficientes de Fourier para f(x) = |x| en [-π, π], ¿cuál será el valor de b₁?',
+        'options': {
+            'a': '0',
+            'b': '2/π',
+            'c': '-2/π'
+        },
+        'correct_answer': 'b'
+    }
+]
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        # Recuperar las preguntas seleccionadas de la solicitud anterior
+        selected_questions = request.form.getlist('selected_questions')
+
+        # Recibir respuestas del formulario
+        respuestas = {question_id: request.form.get(question_id, 'no respondida') for question_id in selected_questions}
+
+        # Verificar respuestas
+        resultados = []
+        
+        # Filtrar las preguntas que se respondieron
+        for question_id in selected_questions:
+            # Buscar la pregunta correspondiente en la lista original
+            pregunta = next((q for q in questions if q['id'] == question_id), None)
+            if pregunta:
+                respuesta = respuestas[question_id]
+                # Verificar si la respuesta es correcta
+                if respuesta == 'no respondida':
+                    resultados.append(f"Pregunta {pregunta['id']}: Incorrecto (Respuesta correcta: {pregunta['correct_answer']})")
+                elif respuesta == pregunta['correct_answer']:
+                    resultados.append(f"Pregunta {pregunta['id']}: Correcto")
+                else:
+                    resultados.append(f"Pregunta {pregunta['id']}: Incorrecto (Respuesta correcta: {pregunta['correct_answer']})")
+
+        # Unir resultados en una cadena
+        resultados_str = '<br>'.join(resultados)  # Cambiar a <br> para HTML
+
+        # Seleccionar 3 nuevas preguntas aleatorias para la próxima ronda
+        new_selected_questions = random.sample(questions, 3)
+
+        # Renderizar la plantilla con los resultados y nuevas preguntas
+        return render_template('index.html', results=resultados_str, questions=new_selected_questions, selected_questions=new_selected_questions)
+    else:
+        # Seleccionar 3 preguntas aleatorias al inicio
+        selected_questions = random.sample(questions, 3)
+        return render_template('index.html', questions=selected_questions, results=None, selected_questions=selected_questions)
+
+
 
 # SERIES DE POTENCIAS
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/quiz', methods=['POST'])
-def quiz():
-    respuestas = {
-        'pregunta1': request.form.get('pregunta1'),
-        'pregunta2': request.form.get('pregunta2'),
-        'pregunta3': request.form.get('pregunta3'),
-        'pregunta4': request.form.get('pregunta4'),  
-        'pregunta5': request.form.get('pregunta5')  
-    }
-    
-    # Verificar respuestas
-    resultados = []
-    for pregunta, respuesta in respuestas.items():
-        if respuesta is None:
-            resultados.append(f"{pregunta}: No respondida")
-        elif respuesta == correct_answers[pregunta]:
-            resultados.append(f"{pregunta}: Correcto")
-        else:
-            resultados.append(f"{pregunta}: Incorrecto (Respuesta correcta: {correct_answers[pregunta]})")
-    
-    # Unir resultados en una cadena
-    resultados_str = '  '.join(resultados)
-    
-    return render_template('index.html', results=resultados_str)
-
 @app.route('/calculate', methods=['POST'])
 def calculate():
     # Obtener la entrada del formulario

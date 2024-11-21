@@ -69,138 +69,63 @@
                 <h1 class="mt-10 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Series de Fourier</h1>
             <p class="mt-6 text-xl/8 text-gray-700">El nombre se debe al matemático francés Jean-Baptiste Joseph Fourier, que desarrolló la teoría cuando estudiaba la ecuación del calor. Fue el primero que estudió tales series sistemáticamente, y publicó sus resultados iniciales en 1807 y 1811. Esta área de investigación se llama algunas veces análisis armónico.</p>
             <p class="mt-6 text-xl/8 text-gray-700">La Serie de Fourier es una herramienta matemática que nos permite obtener información de una función determinada mediante una transformación (donde entenderemos por “transformación” al proceso que reduce la complejidad de una ecuación). Por lo tanto, cuando se hace referencia a la Serie de Fourier (sf), realmente hablamos de la transformación que nos permite extraer información sobre la frecuencia de un ciclo –puede ser cualquier función– cuando conocemos sólo una parte de su comportamiento.</p>
-                 </div>
+                </div>
             </div>
           </div>
         </div>
       </div>   
-      <div class="my-4 border-t border-white"></div>
-      <div style="background-color: #0f131e;" class="p-4 rounded-lg">       
-            <h1 class="text-4xl font-bold mb-6 text-center text-white">Cuestionario</h1>
-            <form action="/quiz" method="POST">
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-
-<div style="background-color: #776fff;" class="p-4 rounded-lg">
-                    <label class="block text-lg font-semibold mb-2 ">1. ¿Qué es una serie de potencias?</label>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="pregunta1" value="a" required class="form-radio text-blue-600">
-                                <span class="ml-2">a) Una suma finita de términos.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta1" value="b" class="form-radio text-blue-600">
-                                <span class="ml-2">b) Una serie que incluye potencias de una variable.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta1" value="c" class="form-radio text-blue-600">
-                                <span class="ml-2">c) Un tipo de ecuación diferencial.</span>
-                            </label>
-                        </div>
-                    </div>
-    
-                    <div style="background-color: #fd83b6;" class="p-4 rounded-lg">
-                        <label class="block text-lg font-semibold mb-2">2. ¿Qué se entiende por radio de convergencia en el contexto de series de potencias?</label>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="pregunta2" value="a" required class="form-radio text-blue-600">
-                                <span class="ml-2">a) El número máximo de términos en la serie.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta2" value="b" class="form-radio text-blue-600">
-                                <span class="ml-2">b) El conjunto de valores para los cuales la serie converge.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta2" value="c" class="form-radio text-blue-600">
-                                <span class="ml-2">c) La distancia entre el centro de la serie y el primer término.</span>
-                            </label>
-                        </div>
-                    </div>
-    
-                    <div style="background-color: #776fff;" class="p-4 rounded-lg">
-                      <label class="block text-lg font-semibold mb-2">3. ¿Cuál es el papel del punto c en una serie de potencias?</label>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="pregunta3" value="a" required class="form-radio text-blue-600">
-                                <span class="ml-2">a) Es el centro alrededor del cual se desarrolla la serie.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta3" value="b" class="form-radio text-blue-600">
-                                <span class="ml-2">b) Es el valor máximo que puede tomar x.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta3" value="c" class="form-radio text-blue-600">
-                                <span class="ml-2">c) Es el coeficiente principal de la serie.</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div style="background-color: #fd83b6;" class="p-4 rounded-lg">
-
-<label class="block text-lg font-semibold mb-2">4. ¿Qué tipo de funciones se pueden representar mediante series de potencias?</label>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="pregunta4" value="a" required class="form-radio text-blue-600">
-                                <span class="ml-2">a) Solo funciones polinómicas.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta4" value="b" class="form-radio text-blue-600">
-                                <span class="ml-2">b) Solo funciones periódicas.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta4" value="c" class="form-radio text-blue-600">
-                                <span class="ml-2">c) Funciones comunes y nuevas funciones complejas.</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div style="background-color: #776fff;" class="p-4 rounded-lg">
-                      <label class="block text-lg font-semibold mb-2">5. ¿Quién desarrolló la teoría de las series de Fourier?</label>
-                        <div>
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="pregunta5" value="a" required class="form-radio text-blue-600">
-                                <span class="ml-2">a) Jean-Baptiste Joseph Fourier.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta5" value="b" class="form-radio text-blue-600">
-                                <span class="ml-2">b) Isaac Newton.</span>
-                            </label>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="radio" name="pregunta5" value="c" class="form-radio text-blue-600">
-                                <span class="ml-2">c) Carl Friedrich Gauss.</span>
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit">Enviar Respuestas</button>
-        </form>
-        {% if results %}
-            <div id="quizResult">
-                <h2>Resultados:</h2>
-                <p>{{ results }}</p>
-            </div>
-        {% endif %}
-
-                  </div>
-                          
-    </div>
-    <div class="my-4 border-t border-white"></div>
-      <h1 class="text-4xl font-bold text-center mb-6 text-white">Calculadora de Series</h1>
       
-      <div class="section bg-white p-6 rounded-lg shadow-md mb-4">
-        <h2 class="text-2xl font-semibold mb-4">Serie de Potencia</h2>
-        <form id="powerSeriesForm" action="/calculate" method="post">
-            <label for="powerInput">Introduce la ecuacion (ej. y'' - y = 0):</label>
-            <input type="text" id="powerInput" name="powerInput" required>
-            <button type="submit">Calcular</button>
-        </form>
-        <div id="powerResult">
-            {% if power_result %}
-                <h3>Resultado:</h3>
-                <p>{{ power_result }}</p>
-            {% endif %}
+      <div class="my-4 border-t border-white"></div>
+<div style="background-color: #0f131e;" class="p-4 rounded-lg">       
+    <h1 class="text-4xl font-bold mb-6 text-center text-white">Cuestionario</h1>
+    {% if results %}
+        <div id="quizResult" class="mb-4 p-4 bg-blue-600 text-white rounded">
+            <h2>Resultados:</h2>
+            <p>{{ results|safe }}</p>
         </div>
+    {% endif %}
+    <form action="/" method="POST">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {% for question in questions %}
+                <div class="p-4 rounded-lg" style="background-color: #776fff;">
+                    <label class="block text-lg font-semibold mb-2">{{ question.question }}</label>
+                    <div>
+                        {% for option_key, option_value in question.options.items() %}
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="{{ question.id }}" value="{{ option_key }}" required class="form-radio text-blue-600">
+                                <span class="ml-2">{{ option_value }}</span>
+                            </label>
+                            <br>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Campo oculto para enviar el ID de la pregunta -->
+                <input type="hidden" name="selected_questions" value="{{ question.id }}">
+            {% endfor %}
+        </div>
+        <button type="submit" class="mt-4 p-2 bg-blue-600 text-white rounded-lg">Enviar Respuestas</button>
+    </form>
+</div>
+<div class="my-4 border-t border-white"></div>
+<h1 class="text-4xl font-bold text-center mb-6 text-white">Calculadora de Series</h1>
+<div class="section bg-white p-6 rounded-lg shadow-md mb-4">
+    <h2 class="text-2xl font-semibold mb-4">Serie de Potencia</h2>
+    <form id="powerSeriesForm" action="/calculate" method="post">
+        <label for="powerInput">Introduce la ecuacion (ej. y'' - y = 0):</label>
+        <input type="text" id="powerInput" name="powerInput" required>
+        <button type="submit">Calcular</button>
+    </form>
+    <div id="powerResult">
+        {% if power_result %}
+            <h3>Resultado:</h3>
+            <p>{{ power_result }}</p>
+        {% endif %}
     </div>
+</div>
     
 <div class="section bg-white p-6 rounded-lg shadow-md mb-4">
-          <h2 class="text-2xl font-semibold mb-4">Serie de Fourier</h2>
-          <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
+        <h2 class="text-2xl font-semibold mb-4">Serie de Fourier</h2>
+        <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
               <label for="fourierInput" class="block mb-2">Introduce la funcion (ej. e⁻ᵗ, 0≤t≤1):</label>
               <input type="text" id="fourierInput" name="fourierInput" required class="border border-gray-400 p-2 rounded w-full mb-4">
               <button type="submit" class="bg-[#260e69] text-white py-2 px-4 rounded">Calcular</button>
