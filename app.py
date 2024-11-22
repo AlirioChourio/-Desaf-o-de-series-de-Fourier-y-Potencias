@@ -211,32 +211,58 @@ def calculate():
             formatted_solution = "y(x)= ∞∑k=0 * (k+1)(a₀+1)x²ᴷ + ∞∑k=0 (2k+3)/(3) * a₁x²ᴷ⁺¹"
 
         elif power_input == "(x²–1)y''-6y=0":
-            # Definir la variable y los coeficientes
-            a0, a1 = sp.symbols('a0 a1')
-        
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "y(x)= Cₒ ∞∑k=0 * 3/(2n-1)(2n-3) * x² + C₁(x-x³)"
 
         elif power_input == "3xy''+(2–x)y'-2y=0":
-            # Definir la variable y los coeficientes
-            a0, a1 = sp.symbols('a0 a1')
-        
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "y= Cₒ ∞∑k=0 n+1/2*5*8...(3n-1) * xⁿ"
 
         elif power_input == "y''-2xy'-2y=0":
-            # Definir la variable y los coeficientes
-            a0, a1 = sp.symbols('a0 a1')
-        
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "y₁(x)= C₀+C₁x + ∞∑n=2 * Cₙxⁿ"
 
         elif power_input == "y''+xy'+(x²-1)y=0":
-            # Definir la variable y los coeficientes
-            a0, a1 = sp.symbols('a0 a1')
-        
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "∞∑n=0 [(n+2)(n+1)aₙ₊₂ + naₙ + (1-n)aₙ]xⁿ=0"
+
+        elif power_input == "xy''+y'-y=0":
+            formatted_solution = "y(x)= C₁ ∞∑k=0 (-1)ᵏ/(k!)²x²ᵏ + C₂x ∞∑k=0 (-1)ᵏ/((k+1)!k!)x²ᵏ"
+
+        elif power_input == "x²y''+xy'-y=0":
+            formatted_solution = "y(x)= C₁ ∞∑k=0 (-1)ᵏ/(k!)²x²ᵏ + C₂x ∞∑k=0 1/((k+1)!k!)x²ᵏ"
+
+        elif power_input == "y''+2xy'+2y=0":
+            formatted_solution = "y(x)= C₁e⁻ˣ² + C₂xe⁻ˣ²"
+
+        elif power_input == "x²y''-xy'+y=0":
+            formatted_solution = "y(x)= C₁x + C₂x⁻¹"
+
+        elif power_input == "x²y''+3xy'+y=0":
+            formatted_solution = "y(x)= C₁x⁻¹ + C₂x⁻²"
+
+        elif power_input == "x²y''+xy'-(x²+1/4)y=0":
+            formatted_solution = "y(x)= C₁x⁻¹/²J₁/₂(x) + C₂x⁻¹/²Y₁/₂(x)"
+
+        elif power_input == "xy''+y'-4x³y=0":
+            formatted_solution = "y(x)= C₁J₀(x²) + C₂Y₀(x²)"
+
+        elif power_input == "x²y''+xy'+(x²-n²)y=0":
+            formatted_solution = "y(x)= C₁Jₙ(x) + C₂Yₙ(x)"
+
+        elif power_input == "x²y''+xy'+(x²-ν²)y=0":
+            formatted_solution = "y(x)= C₁Jᵥ(x) + C₂Yᵥ(x)"
+
+        elif power_input == "x²y''+3xy'+y=x":
+            formatted_solution = "y(x)= C₁x⁻¹ + C₂x⁻² + x/6"
+
+        elif power_input == "xy''+y'=1":
+            formatted_solution = "y(x)= C₁ + C₂ln|x| + x²/4"
+
+        elif power_input == "x²y''-2xy'+2y=0":
+            formatted_solution = "y(x)= C₁x + C₂x²"
+
+        elif power_input == "x²y''-4xy'+6y=0":
+            formatted_solution = "y(x)= C₁x² + C₂x³"
+
+        elif power_input == "xy''+y'-x²y=0":
+            formatted_solution = "y(x)= C₁J₀(x) + C₂Y₀(x)"        
 
     except Exception as e:
         formatted_solution = "Entrada no reconocida."
@@ -277,64 +303,61 @@ def calculate_fourier():
             formatted_solution = "f(t)≅1.264 + n∑n=1 * [2/1+4n²*π² * (1-e⁻¹)cos2nπt + 4nπ/1+4n²*π²) * (1 - e⁻¹)sin2nπt]"
 
         elif fourier_input == "f(t)=t²,0≤t≤1":
-            # Coeficientes y términos de la serie de Fourier para la nueva función
-            terminos = (3 / (1 + 4 * n**2 * sp.pi**2 * (1 - sp.exp(-2))) * 
-                        (1 - sp.exp(-2)) * sp.sin(2 * n * sp.pi * t) + 
-                        4 * n * sp.pi / (1 + 4 * n**2 * sp.pi**2))
-
-            # Sumar los términos de la serie
-            suma = sp.Sum(terminos, (n, 0, sp.oo))
-            
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "f(t)=1/3 + ∞∑n=1 * [1/n²*π² *cos2nπt - 1/nπ * sin2nπt]"
 
         elif fourier_input == "f(x)= {0 si -π<x<0 / {x si 0<x<π":
-            # Coeficientes y términos de la serie de Fourier para la nueva función
-            terminos = (3 / (1 + 4 * n**2 * sp.pi**2 * (1 - sp.exp(-2))) * 
-                        (1 - sp.exp(-2)) * sp.sin(2 * n * sp.pi * t) + 
-                        4 * n * sp.pi / (1 + 4 * n**2 * sp.pi**2))
-
-            # Sumar los términos de la serie
-            suma = sp.Sum(terminos, (n, 0, sp.oo))
-            
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "S(x)= π/4 + ∞∑n=1 (2(-1)ⁿ⁺¹/n * sin(nx))"
 
         elif fourier_input == "f(x)= {1 si 0<x<1/2 / {0 si 1/2<x<1":
-            # Coeficientes y términos de la serie de Fourier para la nueva función
-            terminos = (3 / (1 + 4 * n**2 * sp.pi**2 * (1 - sp.exp(-2))) * 
-                        (1 - sp.exp(-2)) * sp.sin(2 * n * sp.pi * t) + 
-                        4 * n * sp.pi / (1 + 4 * n**2 * sp.pi**2))
-
-            # Sumar los términos de la serie
-            suma = sp.Sum(terminos, (n, 0, sp.oo))
-            
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "S(x)= 1/4 + ∞∑n=1 ((-1)ⁿ⁺¹/nπ² * sin(2nπx))"
 
         elif fourier_input == "f(x)= {x si -1<x<0 / {-x si 0<x<1":
-            # Coeficientes y términos de la serie de Fourier para la nueva función
-            terminos = (3 / (1 + 4 * n**2 * sp.pi**2 * (1 - sp.exp(-2))) * 
-                        (1 - sp.exp(-2)) * sp.sin(2 * n * sp.pi * t) + 
-                        4 * n * sp.pi / (1 + 4 * n**2 * sp.pi**2))
-
-            # Sumar los términos de la serie
-            suma = sp.Sum(terminos, (n, 0, sp.oo))
-            
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "S(x)= ∞∑n=1 ((-1)ⁿ⁺¹/n * sin(nπx))"
 
         elif fourier_input == "f(t)=t²,−1≤t≤1":
-            # Coeficientes y términos de la serie de Fourier para la nueva función
-            terminos = (3 / (1 + 4 * n**2 * sp.pi**2 * (1 - sp.exp(-2))) * 
-                        (1 - sp.exp(-2)) * sp.sin(2 * n * sp.pi * t) + 
-                        4 * n * sp.pi / (1 + 4 * n**2 * sp.pi**2))
-
-            # Sumar los términos de la serie
-            suma = sp.Sum(terminos, (n, 0, sp.oo))
-            
-            # Formato de la solución para el nuevo ejercicio
             formatted_solution = "S(x)= 1/3 + ∞∑n=1 ((-1)ⁿ * 4/n²π² * cos(nπx) + (-1)ⁿ * 4/n³π³ * (t-(-1)ⁿ)sin(nπt))"
+
+        elif fourier_input == "f(x)= {1 si 0<x<π / {-1 si -π<x<0":
+            formatted_solution = "S(x)= 4/π * ∞∑n=1,3,5,... (1/n * sin(nx))"
+
+        elif fourier_input == "f(x)=x,−π≤x≤π":
+            formatted_solution = "S(x)= 2 * ∞∑n=1 ((-1)ⁿ⁺¹/n * sin(nx))"
+
+        elif fourier_input == "f(x)=|x|,−π≤x≤π":
+            formatted_solution = "S(x)= π/2 - 4/π * ∞∑n=1,3,5,... (1/n² * cos(nx))"
+
+        elif fourier_input == "f(x)=x²,−π≤x≤π":
+            formatted_solution = "S(x)= π²/3 - 4 * ∞∑n=1 ((-1)ⁿ/n² * cos(nx))"
+
+        elif fourier_input == "f(x)=sin(x),−π≤x≤π":
+            formatted_solution = "S(x)= sin(x)"
+
+        elif fourier_input == "f(x)=cos(x),−π≤x≤π":
+            formatted_solution = "S(x)= cos(x)"
+
+        elif fourier_input == "f(x)=e^x,−π≤x≤π":
+            formatted_solution = "S(x)= sinh(π)/π + 2 * ∞∑n=1 (sinh(π)*cos(nx)/(π(1+n²)) + n*sin(nx)/(π(1+n²)))"
+
+        elif fourier_input == "f(x)= {x si 0<x<π / {0 si -π<x<0":
+            formatted_solution = "S(x)= π/4 - 1/π * ∞∑n=1 (cos(nπ)/n² * sin(nx))"
+
+        elif fourier_input == "f(x)= {x² si -π<x<0 / {0 si 0<x<π":
+            formatted_solution = "S(x)= π²/6 - π/2 * ∞∑n=1 ((-1)ⁿ/n * sin(nx)) - ∞∑n=1 ((-1)ⁿ/n² * cos(nx))"
+
+        elif fourier_input == "f(x)= {1 si 0<x<a / {0 si a<x<2π":
+            formatted_solution = "S(x)= a/2π + 1/π * ∞∑n=1 (sin(na)/n * sin(nx))"
+
+        elif fourier_input == "f(x)= {x si 0<x<π/2 / {π-x si π/2<x<π":
+            formatted_solution = "S(x)= π/4 + 4/π * ∞∑n=1,3,5,... ((-1)^((n-1)/2)/n² * cos(nx))"
+
+        elif fourier_input == "f(x)= {1 si -L<x<0 / {-1 si 0<x<L":
+            formatted_solution = "S(x)= 4/π * ∞∑n=1,3,5,... (1/n * sin(nπx/L))"
+
+        elif fourier_input == "f(x)= {x+1 si -1<x<0 / {1-x si 0<x<1":
+            formatted_solution = "S(x)= 1/2 + 4/π² * ∞∑n=1,3,5,... (1/n² * sin(nπx))"
+
+        elif fourier_input == "f(x)= {0 si -π<x<0 / {sin(x) si 0<x<π":
+            formatted_solution = "S(x)= 1/2 - 1/π * ∞∑n=1 (cos(nπ)/n² * sin(nx)) - 1/2π * ∞∑n=1 (cos(nπ)/n * cos(nx))"    
 
     except Exception as e:
         formatted_solution = "Entrada no reconocida."
