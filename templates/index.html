@@ -6,6 +6,7 @@
     <title>Series de Potencias y Fourier</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 </head>
 <header>
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
@@ -25,7 +26,7 @@
     </div>
 </header>
 <body class="bg-[#0f131e] p-10">
-
+ 
     <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
         <div class="absolute inset-0 -z-10 overflow-hidden">
           <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]" aria-hidden="true">
@@ -42,9 +43,9 @@
           <div class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             <div class="lg:pr-4">
               <div class="lg:max-w-lg">
-                <h1 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Series de Potencias</h1>
-                  <p class="mt-6 text-xl/8 text-gray-700">Una serie de potencias es un tipo de serie con términos que incluyen una variable. Más concretamente, si la variable es x, entonces todos los términos de la serie implican potencias de x. En consecuencia, una serie de potencias puede considerarse como un polinomio infinito. Las series de potencias se utilizan para representar funciones comunes y también para definir nuevas funciones. En esta sección definimos las series de potencias y mostramos cómo determinar cuándo una serie de potencias converge y cuándo diverge. También mostramos cómo representar ciertas funciones utilizando series de potencias.</p>
-              </div>
+                <h1 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Serie de <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0f131e] via-purple-900 to-[#260e69]">Potencias</span></h1>
+<p class="mt-6 text-xl/8 text-gray-700">Una serie de potencias es un tipo de serie con términos que incluyen una variable. Más concretamente, si la variable es x, entonces todos los términos de la serie implican potencias de x. En consecuencia, una serie de potencias puede considerarse como un polinomio infinito. Las series de potencias se utilizan para representar funciones comunes y también para definir nuevas funciones. En esta sección definimos las series de potencias y mostramos cómo determinar cuándo una serie de potencias converge y cuándo diverge. También mostramos cómo representar ciertas funciones utilizando series de potencias.</p>
+            </div>
             </div>
           </div>
           <div class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
@@ -66,55 +67,78 @@
                     <span><strong class="font-semibold text-gray-900">Aplicaciones:</strong>Las series de potencias son fundamentales en el análisis matemático y tienen aplicaciones en diversas áreas, como la física, la ingeniería y la economía. Se utilizan para aproximar funciones complicadas mediante polinomios.</span>
                   </li>
                 </ul>
-                <h1 class="mt-10 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Series de Fourier</h1>
+                <h1 class="mt-10 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Series de <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#0f131e] via-purple-900 to-[#260e69]">Fourier</span></h1>
             <p class="mt-6 text-xl/8 text-gray-700">El nombre se debe al matemático francés Jean-Baptiste Joseph Fourier, que desarrolló la teoría cuando estudiaba la ecuación del calor. Fue el primero que estudió tales series sistemáticamente, y publicó sus resultados iniciales en 1807 y 1811. Esta área de investigación se llama algunas veces análisis armónico.</p>
             <p class="mt-6 text-xl/8 text-gray-700">La Serie de Fourier es una herramienta matemática que nos permite obtener información de una función determinada mediante una transformación (donde entenderemos por “transformación” al proceso que reduce la complejidad de una ecuación). Por lo tanto, cuando se hace referencia a la Serie de Fourier (sf), realmente hablamos de la transformación que nos permite extraer información sobre la frecuencia de un ciclo –puede ser cualquier función– cuando conocemos sólo una parte de su comportamiento.</p>
                 </div>
             </div>
           </div>
         </div>
-   
-      
+      <br>
+      <br>
       <div class="my-4 border-t border-white"></div>
-    <div class="p-4 rounded-lg">       
-    <h1 class="mt-10 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Cuestionario</h1>
-
-    {% if results %}
-        <div id="quizResult" class="mb-4 p-4 bg-blue-600 text-white rounded">
-            <h2>Resultados:</h2>
-            <p>{{ results|safe }}</p>
-        </div>
-    {% endif %}
+        <div class="p-4 rounded-lg">       
+          <h1 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Cuestionario</h1>
     <form action="/" method="POST">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 grind-p p-4">
             {% for question in questions %}
-                <div class="p-4 rounded-lg" style="background-color: #8d87fc;">
-                    <label class="block text-lg font-semibold mb-2">{{ question.question }}</label>
-                    <div>
+                <div class="p-5 rounded-lg;">
+                  <div class="shadow-2xl rounded-lg">
+                    <label class="block text-lg font-semibold mb-2 text-white bg-gradient-to-r from-[#260e69] via-purple-900 to-[#0f131e] text-center text-2xl font-medium lg:leading-[2.5] rounded-t-lg p-3">{{ question.question }}</label>
                         {% for option_key, option_value in question.options.items() %}
-                            <label class="inline-flex items-center">
-                                <input type="radio" name="{{ question.id }}" value="{{ option_key }}" required class="form-radio text-blue-600">
-                                <span class="ml-2">{{ option_value }}</span>
+                        <label class="relative flex items-center cursor-pointer">
+                            <label class="flex items-center pl-0.5 lg:h-[3.313rem] w-full border border-[#d3d3d3] rounded-full my-2 pl-5 cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#ceccdc]">
+                                <input type="radio" name="{{ question.id }}" value="{{ option_key }}" required class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-500 checked:border-[#0c003a] checked:bg-[#0c003a] transition-all">
+                                <span class="ml-2 text-slate-600 cursor-pointer text-sm">{{ option_value }}</span>
                             </label>
+                          </label>
                             <br>
                         {% endfor %}
-                    </div>
+                  </div>
                 </div>
                 <!-- Campo oculto para enviar el ID de la pregunta -->
                 <input type="hidden" name="selected_questions" value="{{ question.id }}">
             {% endfor %}
         </div>
-        <button type="submit" class="mt-4 p-2 bg-blue-600 text-white rounded-lg">Enviar Respuestas</button>
+        <button type="submit" class="bg-gradient-to-r from-[#260e69] to-[#0f131e] hover:from-[#260e69] hover:via-purple-900 hover:to-[#0f131e] text-white font-semibold mx-10 py-2 px-4 border border-gray-400 rounded shadow">Enviar Respuestas</button>
     </form>
+    <br>
+    {% if results %}
+              <div id="quizResult" class="mb-4 p-4 bg-slate-900 text-white rounded">
+                  <h2>Resultados:</h2>
+                  <p>{{ results|safe }}</p>
+              </div>
+    {% endif %}
 </div>
-<div class="my-4 border-t border-white"></div>
-<h1 class="text-4xl font-bold text-center mb-6 text-white">Calculadora de Series</h1>
-<div class="section bg-white p-6 rounded-lg shadow-md mb-4">
-    <h2 class="text-2xl font-semibold mb-4">Serie de Potencia</h2>
+<div class="ml-8">
+  <div class="section bg-white p-6 rounded-lg  mb-4">
+    <h2 class="text-2xl font-semibold mb-4">Calculadora de Serie de Potencia</h2>
     <form id="powerSeriesForm" action="/calculate" method="post">
-        <label for="powerInput">Introduce la ecuacion (ej. y'' - y = 0):</label>
-        <input type="text" id="powerInput" name="powerInput" required>
-        <button type="submit">Calcular</button>
+        <label for="powerSelect" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white">Selecciona una ecuacion</label>
+        <select id="powerSelect" name="powerInput" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option value="y'' - y = 0">y'' - y = 0</option>
+            <option value="(x²–1)y''+6xy′+4y=–4">(x²–1)y''+6xy′+4y=–4</option>
+            <option value="(x²–1)y''-6y=0">(x²–1)y''-6y=0</option>
+            <option value="3xy''+(2–x)y'-2y=0">3xy''+(2–x)y'-2y=0</option>
+            <option value="y''-2xy'-2y=0">y''-2xy'-2y=0</option>
+            <option value="y''+xy'+(x²-1)y=0">y''+xy'+(x²-1)y=0</option>
+            <option value="xy''+y'-y=0">xy''+y'-y=0</option>
+            <option value="x²y''+xy'-y=0">x²y''+xy'-y=0</option>
+            <option value="y''+2xy'+2y=0">y''+2xy'+2y=0</option>
+            <option value="x²y''-xy'+y=0">x²y''-xy'+y=0</option>
+            <option value="x²y''+3xy'+y=0">x²y''+3xy'+y=0</option>
+            <option value="x²y''+xy'-(x²+1/4)y=0">x²y''+xy'-(x²+1/4)y=0</option>
+            <option value="xy''+y'-4x³y=0">xy''+y'-4x³y=0</option>
+            <option value="x²y''+xy'+(x²-n²)y=0">x²y''+xy'+(x²-n²)y=0</option>
+            <option value="x²y''+xy'+(x²-ν²)y=0">x²y''+xy'+(x²-ν²)y=0</option>
+            <option value="x²y''+3xy'+y=x">x²y''+3xy'+y=x</option>
+            <option value="xy''+y'=1">xy''+y'=1</option>
+            <option value="x²y''-2xy'+2y=0">x²y''-2xy'+2y=0</option>
+            <option value="x²y''-4xy'+6y=0">x²y''-4xy'+6y=0</option>
+            <option value="xy''+y'-x²y=0">xy''+y'-x²y=0</option>
+        </select>
+        <br>
+        <button type="submit" class="bg-gradient-to-r from-[#260e69] to-[#0f131e] hover:from-[#260e69] hover:via-purple-900 hover:to-[#0f131e] text-white font-bold py-2 px-4 border border-blue-700 rounded">Calcular</button>
     </form>
     <div id="powerResult">
         {% if power_result %}
@@ -122,23 +146,24 @@
             <p>{{ power_result }}</p>
         {% endif %}
     </div>
-</div>
-    
-<div class="section bg-white p-6 rounded-lg shadow-md mb-4">
-        <h2 class="text-2xl font-semibold mb-4">Serie de Fourier</h2>
-        <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
-              <label for="fourierInput" class="block mb-2">Introduce la funcion (ej. e⁻ᵗ, 0≤t≤1):</label>
-              <input type="text" id="fourierInput" name="fourierInput" required class="border border-gray-400 p-2 rounded w-full mb-4">
-              <button type="submit" class="bg-[#260e69] text-white py-2 px-4 rounded">Calcular</button>
-          </form>
-          <div id="fourierResult">
-              {% if fourier_result %}
-                  <h3 class="text-lg font-semibold mt-4">Resultado:</h3>
-                  <p>{{ fourier_result }}</p>
-              {% endif %}
-          </div>
+  </div>
+
+  <div class="section bg-white p-6 rounded-lg mb-4">
+    <h2 class="text-2xl font-semibold mb-4">Calculadora de Serie de Fourier</h2>
+    <form id="fourierSeriesForm" action="/calculate_fourier" method="post">
+          <label for="fourierInput" class="block mb-2 text-lg font-bold text-gray-900 dark:text-white">Introduce la funcion (ej. e⁻ᵗ, 0≤t≤1):</label>
+          <input type="text" id="fourierInput" name="fourierInput" required class="border border-gray-400 p-2 rounded w-full mb-4">
+          <button type="submit" class="bg-gradient-to-r from-[#260e69] to-[#0f131e] hover:from-[#260e69] hover:via-purple-900 hover:to-[#0f131e] text-white font-bold py-2 px-4 border border-blue-700 rounded">Calcular</button>
+      </form>
+      <div id="fourierResult">
+          {% if fourier_result %}
+              <h3 class="text-lg font-semibold mt-4">Resultado:</h3>
+              <p>{{ fourier_result }}</p>
+          {% endif %}
       </div>
   </div>
+</div>
+</div>
 </div>
 <footer class="bg-[#0f131e] rounded-lg shadow m-4 dark:bg-gray-800">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
